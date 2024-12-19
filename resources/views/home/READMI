@@ -1,4 +1,4 @@
-puede servir para cambiar posicion del jugador
+puede servir para cambiar posicion del jugador$$
 
 case 'DEPORTADO':
                 //El efecto es te quito 5000 y te mando a Groelandia //1.-Le quito al jugador 5000
@@ -93,4 +93,5 @@ $context = $r->all();
 
 
 
-prueba de confirmación 
+prueba de confirmación: 
+$$$$$$$
