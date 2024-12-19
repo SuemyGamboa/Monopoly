@@ -1,0 +1,90 @@
+puede servir para cambiar posicion del jugador
+
+case 'DEPORTADO':
+                //El efecto es te quito 5000 y te mando a Groelandia //1.-Le quito al jugador 5000
+                $resultado->mensaje = 'Caiste en deportado';
+                $objeto->dinero = -5000;
+                $res = $this->modifica_dinero($objeto);
+
+                //2.-Cambio la posicion del jugador en el tablero a Groelandia (31) 
+                $parxjug = PartidaJugador::where('idjugador', $objeto->idjugador)
+                    ->where('idpartida', $objeto->idpartida)
+                    ->first();
+                $parxjug->posicion = 31;
+                $parxjug->save();
+                $resultado->perdio = $res->perdio;
+                $boturno->cerrar($objeto);
+                break;
+
+
+
+BOPARTIDIA - FUNCION INICIAR FRAGMENTO
+
+                // 2.3.- Asignar los turnos a los jugadores
+        // También les asigno la posición inicial
+        $jugadores = PartidaJugador::where('idpartida', $objeto->idpartida)->get();
+        $indice_turnos = 0;
+        foreach ($jugadores as $jugador) {
+            $jugador->turno = $turnos[$indice_turnos];
+            // $jugador->turno=1; es autoincrementable 
+            $indice_turnos++;
+            $jugador->save();
+
+
+
+ESTO HACE QUE SEA ALEATORIO - BOTURNO - JUGAR 
+
+$bocontrol=new BoControl();
+        $resultado = new \stdClass();
+
+
+$objeto->posicion=$nueva_posicion;
+$this->crear($objeto);
+
+
+FUNCION RANDOM PARA TIRAR DADOS - HELPER
+function tirar_dados(){
+        return rand(2,12);
+    }
+
+ESTE ES OTRO RANDOM
+$carta=Carta::inRandomOrder()->limit(1)->first(); 
+
+
+
+$context = $r->all();
+        //el turno esta en bo partida
+        $bo = new BoPartida();
+        $objeto = new \stdClass();
+        $objeto->idpartida = $context['idpartida'];
+        $bo->iniciar($objeto);
+
+        
+
+        return view('partida.iniciastepartida'); 
+
+
+        function iniciar($objeto)
+    {
+        // 1.- Cambiar el status de la partida a 1 y asignar el turno inicial 1
+        $partida = Partida::find($objeto->idpartida);
+        $partida->status = 1;
+        $partida->turno = 1;
+        $partida->save();
+
+        // 2.- Obtener los jugadores de la partida
+        $jugadores = PartidaxJugador::where('idpartida', $objeto->idpartida)->get();
+        $numero_jugadores = count($jugadores);
+
+        // 3.- Crear un arreglo de turnos y mezclarlo aleatoriamente
+        $turnos = range(1, $numero_jugadores);
+        shuffle($turnos);
+
+        // 4.- Obtener todas las posiciones disponibles del tablero
+        $posiciones_tablero = DB::table('tablero')->pluck('id'); // Asumiendo que 'id' es la clave de las casillas
+        $posiciones_tablero = $posiciones_tablero->shuffle();
+
+        // 5.- Asignar turnos y posiciones aleatorias a los jugadores
+        $indice_turnos = 0;
+        foreach ($jugadores as $jugador) {
+            $jugador->turno = $turnos[$indice_turnos];

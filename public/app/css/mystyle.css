@@ -1,0 +1,121 @@
+.btn-red {
+    background-color: rgb(220, 21, 21);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-red:hover {
+    background-color: darkred;
+}
+
+.logo{
+    width: 300px;
+    margin: 20px;
+   
+   
+}
+
+.logo2{
+    width: 200px;
+    margin: 30px;
+   padding: 0%;
+   
+}
+
+body{
+    
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_zLfSstYZQD07jgTLvYWlkcH3McTQSRchszuaN0gBwJKo6cfGxeo3MNvbEHE4PkGO9zs&usqp=CAU') ;
+        justify-content: center;
+        align-items: center;
+    
+}
+
+/* Estructura de dos columnas para el login y la imagen */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    margin-top: 40px;
+}
+
+.login-box {
+    flex: 1;
+    max-width: 400px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+   
+}
+
+
+.registro-box {
+    flex: 1;
+    max-width: 600px;
+    padding: 30px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+   margin-bottom: 30px;
+}
+
+.image-box {
+    flex: 1;
+    text-align: center;
+}
+
+.image-box img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.red{
+    background-color: rgb(220, 21, 21);
+}
+
+.nav-h{
+    margin: 20px;
+    padding: 10px;
+}
+.bodyhome{
+    background-color: blue;
+}
+
+.txtwhite{
+    color: aliceblue;
+}
+
+html, body {
+    height: 100%; /* Asegura que el contenedor abarque toda la altura de la ventana */
+    margin: 0;
+
+}
+
+.body{
+    display: flex;
+}
+#wrapper {
+   
+    flex-direction: column;
+    min-height: 100vh; /* El contenedor principal ocupa toda la altura disponible */
+}
+#page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* El contenedor principal ocupa toda la altura disponible */
+   
+}
+
+.footer {
+    background-color: #f8f9fa; /* Color del fondo del footer */
+    text-align: center; /* Centra el texto */
+    padding: 10px;
+    border-top: 1px solid #ddd; /* Línea superior opcional */
+}
