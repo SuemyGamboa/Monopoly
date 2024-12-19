@@ -88,3 +88,9 @@ $context = $r->all();
         $indice_turnos = 0;
         foreach ($jugadores as $jugador) {
             $jugador->turno = $turnos[$indice_turnos];
+
+
+
+
+
+prueba de confirmación 
